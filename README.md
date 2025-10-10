@@ -1,4 +1,4 @@
-# MyAmenities: Chatbot on Household Access to Basic Amenities by State and District
+# MyCPI: An FAQ chatbot for exploring Malaysia’s Core Consumer Price Index (CPI) trends, values, and inflation insights across key divisions of goods and services.
 
 ## 1. Quickstart
 
@@ -9,14 +9,14 @@
 ## 3. Data Card
 | Field | Details |
 |-------|----------|
-| **Dataset Name** | Household Access to Basic Amenities by State and District |
-| **Source URL** | [https://open.dosm.gov.my/data-catalogue/hh_access_amenities](https://open.dosm.gov.my/data-catalogue/hh_access_amenities) |
-| **API Download (CSV)** | [https://storage.dosm.gov.my/hies/hh_access_amenities.csv](https://storage.dosm.gov.my/hies/hh_access_amenities.csv) |
+| **Dataset Name** | Monthly Core CPI by Division (2-Digit) |
+| **Source URL** | [https://open.dosm.gov.my/data-catalogue/cpi_core](https://open.dosm.gov.my/data-catalogue/cpi_core) |
+| **API Download (CSV)** | [https://storage.dosm.gov.my/cpi/cpi_2d_core.csv](https://storage.dosm.gov.my/cpi/cpi_2d_core.csv) |
 | **License** | [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) |
 | **Publisher** | Department of Statistics Malaysia (DOSM) |
-| **Refresh Cadence** | Irregular (updated when new survey data is released) |
-| **Last Updated** | 28 Jul 2023, 12:00 |
-| **Next Update** | Not scheduled |
+| **Refresh Cadence** | Regular (updated every month) |
+| **Last Updated** | 22 Sept 2025 |
+| **Next Update** | 22 Oct 2025 |
 
 ## 4. RAG Design
 
