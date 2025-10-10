@@ -20,7 +20,7 @@
 
 ## 4. RAG Design
 
-## 5. Evualtion
+## 5. Evaluation
 
 ## 6. Limitations and Future Work
 
