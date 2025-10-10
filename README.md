@@ -28,4 +28,4 @@
 **Version:** 1.0  
 **Created by:** Rajihah Muhd Rosydi  
 **Date:** October 2025  
-**Used in Project:** MyAmenities Chatbot  
+**Used in Project:** MyCPI Chatbot  
