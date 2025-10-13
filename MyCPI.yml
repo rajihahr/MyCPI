@@ -1,0 +1,956 @@
+app:
+  description: An intelligent assistant that helps users explore Malaysia’s Core Consumer
+    Price Index (CPI) of 13 main groups of goods and services purchased by Malaysians.
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: advanced-chat
+  name: MyCPI
+  use_icon_as_answer_icon: true
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/openai:0.2.6@e2665624a156f52160927bceac9e169bd7e5ae6b936ae82575e14c90af390e6e
+    version: null
+kind: app
+version: 0.4.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: '👋 Hi! I’m MyCPI.
+
+      Ask me about Malaysia’s Core CPI. I will be pleased to answer!'
+    retriever_resource:
+      enabled: false
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: true
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        sourceType: llm
+        targetType: answer
+      id: llm-answer
+      source: llm
+      sourceHandle: source
+      target: answer
+      targetHandle: target
+      type: custom
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: question-classifier
+      id: 1760150653848-source-1760151469756-target
+      source: '1760150653848'
+      sourceHandle: source
+      target: '1760151469756'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: answer
+      id: 17601608702170-source-1760160921580-target
+      source: '17601608702170'
+      sourceHandle: source
+      target: '1760160921580'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: answer
+      id: 1760151469756-1760164731413-1760151778105-target
+      source: '1760151469756'
+      sourceHandle: '1760164731413'
+      target: '1760151778105'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: llm
+      id: 1760151469756-1760164703464-17601608702170-target
+      source: '1760151469756'
+      sourceHandle: '1760164703464'
+      target: '17601608702170'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: knowledge-retrieval
+      id: 1760151469756-1760151563449-17601648552130-target
+      source: '1760151469756'
+      sourceHandle: '1760151563449'
+      target: '17601648552130'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: knowledge-retrieval
+        targetType: code
+      id: 17601648459010-source-1760165129780-target
+      source: '17601648459010'
+      sourceHandle: source
+      target: '1760165129780'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: llm
+      id: 1760165129780--1760165423686-target
+      source: '1760165129780'
+      sourceHandle: source
+      target: '1760165423686'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: answer
+      id: 1760165423686--1760165475954-target
+      source: '1760165423686'
+      sourceHandle: source
+      target: '1760165475954'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: knowledge-retrieval
+        targetType: code
+      id: 17601648552130-source-17601922244390-target
+      source: '17601648552130'
+      sourceHandle: source
+      target: '17601922244390'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: llm
+      id: 17601922244390--1760192300712-target
+      source: '17601922244390'
+      sourceHandle: source
+      target: '1760192300712'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: answer
+      id: 1760192300712-source-1760192386125-target
+      source: '1760192300712'
+      sourceHandle: source
+      target: '1760192386125'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: knowledge-retrieval
+      id: 1760151469756-1760160794718-17601648459010-target
+      source: '1760151469756'
+      sourceHandle: '1760160794718'
+      target: '17601648459010'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: knowledge-retrieval
+        targetType: llm
+      id: 1760330443118-source-llm-target
+      source: '1760330443118'
+      sourceHandle: source
+      target: llm
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: knowledge-retrieval
+      id: 1760151469756-2-1760330443118-target
+      source: '1760151469756'
+      sourceHandle: '2'
+      target: '1760330443118'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        selected: false
+        title: Start
+        type: start
+        variables: []
+      height: 52
+      id: '1760150653848'
+      position:
+        x: 88.4532126608002
+        y: 331.4437370129142
+      positionAbsolute:
+        x: 88.4532126608002
+        y: 331.4437370129142
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1760330443118'
+          - result
+        memory:
+          query_prompt_template: '{{#sys.query#}}
+
+
+            {{#sys.files#}}'
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: false
+            size: 10
+        model:
+          completion_params:
+            max_tokens: 512
+            temperature: 0.3
+            top_p: 1
+          mode: chat
+          name: gpt-4o
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: 9f5e80b8-6008-4cb7-96ba-0eff2dc50031
+          role: system
+          text: "You are MyCPI — an intelligent assistant that provides factual answers\
+            \ about Malaysia’s Core Consumer Price Index (CPI).\n\nYou will receive:\n\
+            1. A user question about Malaysia’s Core CPI.\n2. Retrieved dataset information\
+            \ from the Department of Statistics Malaysia (DOSM).\n\nUse only the retrieved\
+            \ dataset content to answer.\n\n- Identify the division (e.g., Transport,\
+            \ Health, Education) and month/year mentioned in the question.\n- Provide\
+            \ the Core CPI value and date exactly as shown in the dataset.\n- If the\
+            \ question does not specify a date, use the most recent available data.\n\
+            - If no matching record is found, say:\n  “I’m sorry, but that data is\
+            \ not available in the dataset provided by the Department of Statistics\
+            \ Malaysia.”\n- If the question asks about a date later than August 2025,\
+            \ say:\n  “The dataset currently covers up to August 2025. For newer figures,\
+            \ please refer to the Department of Statistics Malaysia’s latest release.”\n\
+            - If the question is unrelated to CPI (e.g., GDP, politics, weather, or\
+            \ unrelated statistics), politely refuse:\n  “I’m sorry, but I can only\
+            \ answer questions related to Malaysia’s Core Consumer Price Index (CPI).”\n\
+            - Keep responses short, factual, and neutral.\n- Always end your answer\
+            \ with:\n  “Note: Data is based on the Department of Statistics Malaysia,\
+            \ Core CPI by Division, as of August 2025.” \n\nExample:\nUser What is\
+            \ the CPI for Transport in August 2025?  \nAnswer: The Core CPI for Transport\
+            \ in August 2025 was 127.3.  \nNote: Data is based on the Department of\
+            \ Statistics Malaysia (DOSM), Core CPI by Division, as of August 2025.\n\
+            \nUser question:\n{{{{#sys.query#}}}}\n\nRetrieved data:\n{{{{#context#}}}}\n"
+        selected: false
+        title: LLM
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: llm
+      position:
+        x: 974.5392957900649
+        y: 300.2377572689716
+      positionAbsolute:
+        x: 974.5392957900649
+        y: 300.2377572689716
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        answer: '{{#llm.text#}}'
+        selected: false
+        title: Answer
+        type: answer
+        variables: []
+      height: 103
+      id: answer
+      position:
+        x: 1269.1267247204873
+        y: 300.2377572689716
+      positionAbsolute:
+        x: 1269.1267247204873
+        y: 300.2377572689716
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        classes:
+        - id: '2'
+          name: Questions about CPI for one or multiple divisions or months. e.g.,
+            “What’s CPI for Transport?”, “Show CPI for Health and Food.”
+        - id: '1760160794718'
+          name: Question when the user asks to list or show multiple months or a period
+            of data
+        - id: '1760151563449'
+          name: Questions asking for average, percentage change, increase, decrease,
+            or comparison between categories
+        - id: '1760164703464'
+          name: Questions about general Consumer Price Index or Malaysia's CPI
+        - id: '1760164731413'
+          name: Question is not about CPI
+        instruction: 'You are an intent classifier for MyCPI, a chatbot that answers
+          questions about Malaysia’s Core Consumer Price Index (CPI).
+
+
+          Classify the user''s question into one of the following intents:
+
+
+          1. class 1 — when the user asks to export, download, or get data as a CSV
+          file.
+
+          2. class 2 — when the user asks for a specific month or the latest CPI (e.g.
+          “What is the CPI for Transport in August 2024?”)
+
+          3. class 3 — when the user asks to list or show multiple months or a period
+          of data (e.g. “Show CPI from January to June 2024”)
+
+          4. class 4 — when the user asks for average, percentage change, increase/decrease,
+          or comparison between two points in time (e.g. “What’s the average CPI for
+          Health from January to June 2024?”, “How much did CPI increase from 2023
+          to 2024?”)
+
+          5. class 5 — when the question is about general knowledge on CPI or Malaysia''s
+          CPI
+
+          6. class 6 — when the question is unrelated to CPI (e.g. about GDP, weather,
+          etc.)
+
+
+          Rules:
+
+          - If both a range and a calculation keyword appear (like “average”, “percent”,
+          “change”, “increase”, “decrease”), choose class 4.
+
+          - If it’s purely listing months or showing trends with no math intent, choose
+          class 3.
+
+          - Ignore polite words or general questions (like “Hi”, “How are you?”) and
+          classify them as class 6.
+
+          '
+        instructions: ''
+        memory:
+          query_prompt_template: '{{#sys.query#}}
+
+
+            {{#sys.files#}}'
+          window:
+            enabled: true
+            size: 50
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4
+          provider: langgenius/openai/openai
+        query_variable_selector:
+        - '1760150653848'
+        - sys.query
+        selected: false
+        title: Question Classifier
+        type: question-classifier
+        vision:
+          enabled: false
+      height: 412
+      id: '1760151469756'
+      position:
+        x: 389.37564275386217
+        y: 331.4437370129142
+      positionAbsolute:
+        x: 389.37564275386217
+        y: 331.4437370129142
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        answer: I'm sorry, but I can only answer questions related to Malaysia’s Core
+          Consumer Price Index (CPI) dataset.
+        selected: false
+        title: Answer 2
+        type: answer
+        variables: []
+      height: 132
+      id: '1760151778105'
+      position:
+        x: 680
+        y: 749.7790498884744
+      positionAbsolute:
+        x: 680
+        y: 749.7790498884744
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - sys
+          - query
+        memory:
+          query_prompt_template: '{{#sys.query#}}
+
+
+            {{#sys.files#}}'
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: false
+            size: 10
+        model:
+          completion_params:
+            max_tokens: 512
+            temperature: 0.3
+            top_p: 1
+          mode: chat
+          name: gpt-4o
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: 9f5e80b8-6008-4cb7-96ba-0eff2dc50031
+          role: system
+          text: "You are MyCPI — an intelligent data assistant that helps users explore\
+            \ Malaysia’s Core Consumer Price Index (CPI).\n\nYour goal is to provide\
+            \ clear, factual, and concise answers using only the retrieved dataset\
+            \ information. \nUse the content from the knowledge retrieval results\
+            \ below to answer the user’s question about Malaysia’s Core CPI.\n\nIf\
+            \ the user asks conceptual questions (e.g., \"What is Core CPI?\" or \"\
+            How is CPI calculated?\"), \n  provide a short, factual explanation using\
+            \ general CPI knowledge.\n\nOutput Style:\n- Keep responses short, clear,\
+            \ and data-driven.\n- Use one or two sentences for factual answers, and\
+            \ up to three for explanations or trends.\n- Do not make up data or numbers\
+            \ not present in the retrieved content.\n\nUser Question: {{#context#}}"
+        selected: false
+        title: LLM (1)
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '17601608702170'
+      position:
+        x: 974.5392957900649
+        y: 712.6406247830455
+      positionAbsolute:
+        x: 974.5392957900649
+        y: 712.6406247830455
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        answer: '{{#17601608702170.text#}}'
+        selected: false
+        title: Answer 4
+        type: answer
+        variables: []
+      height: 103
+      id: '1760160921580'
+      position:
+        x: 1274.539295790065
+        y: 712.6406247830455
+      positionAbsolute:
+        x: 1274.539295790065
+        y: 712.6406247830455
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        dataset_ids:
+        - Z4jv54cZNOUztW13cD9UgUPx4EKvffqHGRMMZy1YFe0ar/m982oqZXLa6LmdBTFG
+        metadata_filtering_mode: automatic
+        metadata_model_config:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4.1
+          provider: langgenius/openai/openai
+        multiple_retrieval_config:
+          reranking_enable: false
+          reranking_mode: weighted_score
+          score_threshold: 0.3
+          top_k: 10
+          weights:
+            keyword_setting:
+              keyword_weight: 0.6
+            vector_setting:
+              embedding_model_name: text-embedding-3-small
+              embedding_provider_name: langgenius/openai/openai
+              vector_weight: 0.4
+            weight_type: customized
+        query_variable_selector:
+        - sys
+        - query
+        retrieval_mode: multiple
+        selected: false
+        title: Knowledge Retrieval 2
+        type: knowledge-retrieval
+      height: 90
+      id: '17601648459010'
+      position:
+        x: 680
+        y: 429.66585181151873
+      positionAbsolute:
+        x: 680
+        y: 429.66585181151873
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        dataset_ids:
+        - Z4jv54cZNOUztW13cD9UgUPx4EKvffqHGRMMZy1YFe0ar/m982oqZXLa6LmdBTFG
+        metadata_filtering_mode: automatic
+        metadata_model_config:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4.1
+          provider: langgenius/openai/openai
+        multiple_retrieval_config:
+          reranking_enable: false
+          reranking_mode: weighted_score
+          score_threshold: 0.3
+          top_k: 10
+          weights:
+            keyword_setting:
+              keyword_weight: 0.6
+            vector_setting:
+              embedding_model_name: text-embedding-3-small
+              embedding_provider_name: langgenius/openai/openai
+              vector_weight: 0.4
+            weight_type: customized
+        query_variable_selector:
+        - '1760150653848'
+        - sys.query
+        retrieval_mode: multiple
+        selected: false
+        title: Knowledge Retrieval 3
+        type: knowledge-retrieval
+      height: 90
+      id: '17601648552130'
+      position:
+        x: 680
+        y: 559.0499485827661
+      positionAbsolute:
+        x: 680
+        y: 559.0499485827661
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "import re\nfrom datetime import datetime\n\ndef main(user_input: str,\
+          \ retrieval_result: list) -> dict:\n    # Helper for month names\n    months\
+          \ = {\n        \"january\": 1, \"february\": 2, \"march\": 3, \"april\"\
+          : 4,\n        \"may\": 5, \"june\": 6, \"july\": 7, \"august\": 8,\n   \
+          \     \"september\": 9, \"october\": 10, \"november\": 11, \"december\"\
+          : 12\n    }\n\n    # --- STEP 1: Extract all CPI records from the retrieval\
+          \ result ---\n    rows = []\n    for item in retrieval_result:\n       \
+          \ content = item.get(\"content\", \"\")\n        date_match = re.search(r\"\
+          date:\\s*([\\d-]+)\", content)\n        index_match = re.search(r\"index:\\\
+          s*([\\d.]+)\", content)\n        division_match = re.search(r\"division_name:\\\
+          s*([^;]+)\", content)\n        if date_match and index_match and division_match:\n\
+          \            date_str = date_match.group(1)\n            rows.append({\n\
+          \                \"date\": date_str,\n                \"index\": float(index_match.group(1)),\n\
+          \                \"division\": division_match.group(1).strip(),\n      \
+          \          \"dt\": datetime.strptime(date_str, \"%Y-%m-%d\")\n         \
+          \   })\n\n    if not rows:\n        return {\"range_summary\": \"I'm sorry,\
+          \ but no CPI data was found for that period.\"}\n\n    # --- STEP 2: Extract\
+          \ months and years from user input ---\n    text = user_input.lower()\n\
+          \    found_months = [m for m in months if m in text]\n    found_years =\
+          \ [int(y) for y in re.findall(r\"\\b(20\\d{2})\\b\", text)]\n\n    # ---\
+          \ STEP 3: Infer range start and end ---\n    start_month = months.get(found_months[0])\
+          \ if found_months else 1\n    end_month = months.get(found_months[-1]) if\
+          \ len(found_months) > 1 else (start_month if found_months else 12)\n\n \
+          \   # Use first year found; if only one, assume same year\n    year = found_years[0]\
+          \ if found_years else max(r[\"dt\"].year for r in rows)\n    start_date\
+          \ = datetime(year, start_month, 1)\n    end_date = datetime(year, end_month,\
+          \ 28)\n\n    # --- STEP 4: Filter rows within the detected range ---\n \
+          \   filtered = [r for r in rows if start_date <= r[\"dt\"] <= end_date and\
+          \ r[\"dt\"].year == year]\n\n    if not filtered:\n        return {\"range_summary\"\
+          : f\"I'm sorry, but the data from {found_months[0].capitalize() if found_months\
+          \ else 'the requested months'} {year} is missing.\"}\n\n    # --- STEP 5:\
+          \ Sort and format output ---\n    filtered.sort(key=lambda x: x[\"dt\"])\n\
+          \    division_name = filtered[0][\"division\"]\n    summary_lines = [f\"\
+          - {r['dt'].strftime('%B %Y')}: {r['index']}\" for r in filtered]\n\n   \
+          \ result_text = f\"Here are the Core CPI figures for {division_name} from\
+          \ {start_date.strftime('%B')} to {end_date.strftime('%B %Y')}:\\n\" + \"\
+          \\n\".join(summary_lines)\n    return {\"range_summary\": result_text}"
+        code_language: python3
+        outputs:
+          range_summary:
+            children: null
+            type: string
+        selected: false
+        title: Range Processor
+        type: code
+        variables:
+        - value_selector:
+          - '17601648459010'
+          - result
+          value_type: array[object]
+          variable: retrieval_result
+        - value_selector:
+          - sys
+          - query
+          value_type: string
+          variable: user_input
+      height: 52
+      id: '1760165129780'
+      position:
+        x: 974.5392957900649
+        y: 429.66585181151873
+      positionAbsolute:
+        x: 974.5392957900649
+        y: 429.66585181151873
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1760165129780'
+          - range_summary
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: 548ecae5-7673-4585-bba7-b532d3e24f9d
+          role: system
+          text: 'You are MyCPI, an assistant that explains Malaysia’s Core CPI clearly
+            and concisely.
+
+
+            If range_summary contains a list of CPI data:
+
+            - Present it neatly as a summary for the user.
+
+            - Do not add extra data.
+
+            - End with: "Note: Data is based on the Department of Statistics Malaysia,
+            Core CPI by Division, as of August 2025.". Add a line before the end sentence.
+
+
+            If range_summary mentions missing data:
+
+            - Use that text directly.
+
+
+            User question:
+
+            {{{{#sys.query#}}}}
+
+
+            Retrieved data summary:
+
+            {{{{#context#}}}}
+
+            '
+        selected: false
+        title: LLM 3
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1760165423686'
+      position:
+        x: 1269.1267247204873
+        y: 429.66585181151873
+      positionAbsolute:
+        x: 1269.1267247204873
+        y: 429.66585181151873
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        answer: '{{#1760165423686.text#}}'
+        selected: false
+        title: Answer 5
+        type: answer
+        variables: []
+      height: 103
+      id: '1760165475954'
+      position:
+        x: 1578.805669274594
+        y: 429.66585181151873
+      positionAbsolute:
+        x: 1578.805669274594
+        y: 429.66585181151873
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "import re\nfrom datetime import datetime\n\ndef main(user_input: str,\
+          \ retrieval_result: list) -> dict:\n    text = user_input.lower()\n\n  \
+          \  # --- Step 1: Extract CPI data from retrieved chunks ---\n    rows =\
+          \ []\n    for item in retrieval_result:\n        content = item.get(\"content\"\
+          , \"\")\n        date_match = re.search(r\"date:\\s*([\\d-]+)\", content)\n\
+          \        index_match = re.search(r\"index:\\s*([\\d.]+)\", content)\n  \
+          \      division_match = re.search(r\"division_name:\\s*([^;]+)\", content)\n\
+          \        if date_match and index_match and division_match:\n           \
+          \ date_str = date_match.group(1)\n            rows.append({\n          \
+          \      \"date\": date_str,\n                \"index\": float(index_match.group(1)),\n\
+          \                \"division\": division_match.group(1).strip(),\n      \
+          \          \"dt\": datetime.strptime(date_str, \"%Y-%m-%d\")\n         \
+          \   })\n\n    if not rows:\n        return {\"calc_summary\": \"I'm sorry,\
+          \ but I couldn’t find CPI data for that category or time period.\"}\n\n\
+          \    # --- Step 2: Sort by date to ensure correct order ---\n    rows =\
+          \ sorted(rows, key=lambda x: x[\"dt\"])\n\n    # --- Step 3: Detect calculation\
+          \ intent ---\n    if \"average\" in text or \"mean\" in text:\n        avg\
+          \ = sum(r[\"index\"] for r in rows) / len(rows)\n        division = rows[0][\"\
+          division\"]\n        start = rows[0][\"dt\"].strftime(\"%B %Y\")\n     \
+          \   end = rows[-1][\"dt\"].strftime(\"%B %Y\")\n        return {\"calc_summary\"\
+          : f\"The average Core CPI for {division} from {start} to {end} was {avg:.2f}.\"\
+          }\n\n    elif any(word in text for word in [\"change\", \"increase\", \"\
+          decrease\", \"percent\", \"%\"]):\n        start, end = rows[0], rows[-1]\n\
+          \        change = end[\"index\"] - start[\"index\"]\n        percent_change\
+          \ = (change / start[\"index\"]) * 100\n        division = start[\"division\"\
+          ]\n        direction = \"increase\" if percent_change > 0 else \"decrease\"\
+          \n        return {\n            \"calc_summary\": (\n                f\"\
+          The Core CPI for {division} changed from {start['index']:.2f} in {start['dt'].strftime('%B\
+          \ %Y')} \"\n                f\"to {end['index']:.2f} in {end['dt'].strftime('%B\
+          \ %Y')}, \"\n                f\"a {percent_change:.2f}% {direction}.\"\n\
+          \            )\n        }\n\n    else:\n        return {\"calc_summary\"\
+          : \"Please specify whether you want the average CPI or the percentage change.\"\
+          }"
+        code_language: python3
+        outputs:
+          calc_summary:
+            children: null
+            type: string
+        selected: false
+        title: CPI CALCULATOR
+        type: code
+        variables:
+        - value_selector:
+          - '17601648552130'
+          - result
+          value_type: array[object]
+          variable: retrieval_result
+        - value_selector:
+          - sys
+          - query
+          value_type: string
+          variable: user_input
+      height: 52
+      id: '17601922244390'
+      position:
+        x: 974.5392957900649
+        y: 559.0499485827661
+      positionAbsolute:
+        x: 974.5392957900649
+        y: 559.0499485827661
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '17601922244390'
+          - calc_summary
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: d2edd545-f11d-439a-a97f-46942781d5ff
+          role: system
+          text: 'You are MyCPI, a data assistant for Malaysia’s Core CPI dataset.
+
+
+            If {{#17601922244390.calc_summary#}} provides a numerical or percentage
+            result:
+
+            - Present it clearly and factually.
+
+            - Do not invent numbers.
+
+            - End with: "Note: Data is based on the Department of Statistics Malaysia,
+            Core CPI by Division, as of August 2025."
+
+
+            If calc_summary contains an error or missing data:
+
+            - Use that text directly.
+
+
+            User question:
+
+            {{{{#sys.query#}}}}
+
+
+            Calculation summary:
+
+            {{{{#context#}}}}
+
+            '
+        reasoning_format: tagged
+        selected: false
+        title: LLM 4
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1760192300712'
+      position:
+        x: 1274.539295790065
+        y: 559.0499485827661
+      positionAbsolute:
+        x: 1274.539295790065
+        y: 559.0499485827661
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        answer: '{{#1760192300712.text#}}'
+        selected: false
+        title: Answer 6
+        type: answer
+        variables: []
+      height: 103
+      id: '1760192386125'
+      position:
+        x: 1578.805669274594
+        y: 559.0499485827661
+      positionAbsolute:
+        x: 1578.805669274594
+        y: 559.0499485827661
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        dataset_ids:
+        - Z4jv54cZNOUztW13cD9UgUPx4EKvffqHGRMMZy1YFe0ar/m982oqZXLa6LmdBTFG
+        multiple_retrieval_config:
+          reranking_enable: false
+          reranking_mode: weighted_score
+          score_threshold: 0.3
+          top_k: 10
+          weights:
+            keyword_setting:
+              keyword_weight: 0.6
+            vector_setting:
+              embedding_model_name: text-embedding-3-small
+              embedding_provider_name: langgenius/openai/openai
+              vector_weight: 0.4
+            weight_type: customized
+        query_variable_selector:
+        - '1760150653848'
+        - sys.query
+        retrieval_mode: multiple
+        selected: false
+        title: Knowledge Retrieval 4
+        type: knowledge-retrieval
+      height: 90
+      id: '1760330443118'
+      position:
+        x: 680
+        y: 300.2377572689716
+      positionAbsolute:
+        x: 680
+        y: 300.2377572689716
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    viewport:
+      x: 51.99241391310704
+      y: 9.547203861817536
+      zoom: 0.586050711189806
+  rag_pipeline_variables: []
