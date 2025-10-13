@@ -10,7 +10,7 @@
 {"id": 10, "query": "What is the CPI for Food and Beverages in April 2025?", "expected": "158.3"}
 {"id": 11, "query": "Show CPI from January to December 2023 overall", "expected": "January: 127.7, February: 128.0, March: 128.3, 
 April: 128.3, May: 128.7, June: 128.9, July: 128.9, August: 129.2, September: 129.6, October: 129.6, November: 129.6, December: 129.6"}
-{"id": 12, "query": "What is the overall CPI for Transport in 2020?", "expected": "Gives average of 2024 Transport: 109.6"}
+{"id": 12, "query": "What is the CPI for Transport in 2020?", "expected": "Reclarify if user wants the average or percentage"}
 {"id": 13, "query": "How does CPI for Health change between 2023 and 2024?", "expected": "Shows an increase"}
 {"id": 14, "query": "What is the CPI for Alcoholic Beverages & Tobacco in February 2024?", "expected": "Refusal to answer, data is not available and justify"}
 {"id": 15, "query": "What is the inflation rate in Malaysia?", "expected": "Refusal to answer, states that question is off-topict"}
