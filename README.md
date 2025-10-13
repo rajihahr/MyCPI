@@ -1,4 +1,4 @@
-# MyCPI: An FAQ chatbot for exploring Malaysia’s Core Consumer Price Index (CPI) trends, values, and inflation insights across key divisions of goods and services.
+# MyCPI: An FAQ chatbot for exploring Malaysia’s Core Consumer Price Index trends, values, and insights across 13 key divisions of goods and services.
 
 ## 1. Quickstart
 
