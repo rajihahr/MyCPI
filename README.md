@@ -1,7 +1,7 @@
 # 📊🛒 MyCPI: An FAQ Chatbot for Exploring Malaysia’s Core Consumer Price Index (CPI)
 
 ![Dify](https://img.shields.io/badge/Built%20with-Dify%20AI-ff69b4)
-![OpenAI API](https://img.shields.io/badge/LLM-gpt--4o--mini-blueviolet)
+![OpenAI API](https://img.shields.io/badge/LLM-gpt--4o--blueviolet)
 ![Dataset](https://img.shields.io/badge/Data-DOSM%20Core%20CPI%20(Aug%202025)-orange)
 
 ## 🔎 Overview
