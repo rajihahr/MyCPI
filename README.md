@@ -76,11 +76,8 @@ Example of the final columns:
    - Tick `Replace consecutive spaces, newlines and tabs`
 4. **Index Method**: High Quality
 5. **Embedding Model**: `text-embedding-ada-002`
-6. **Retrieval Setting**: `Hybrid Search`
-   - Choose `Weighted Score`
+6. **Retrieval Setting**: `Vector Search`
    - Top-K: `10`
-   - Semantic similarity: `0.4`
-   - Keyword matching: `0.6`
    - Score Threshold: `0.3`
 
 ## 🛠️ Setup workflow in Dify
