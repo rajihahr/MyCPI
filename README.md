@@ -1,12 +1,45 @@
-# MyCPI: An FAQ chatbot for exploring Malaysia’s Core Consumer Price Index trends, values, and insights across 13 key divisions of goods and services.
+# 📊 MyCPI: An FAQ Chatbot for Exploring Malaysia’s Core Consumer Price Index (CPI)
 
-## 1. Quickstart
+![Dify](https://img.shields.io/badge/Built%20with-Dify%20AI-ff69b4)
+![OpenAI API](https://img.shields.io/badge/LLM-gpt--4o--mini-blueviolet)
+![Dataset](https://img.shields.io/badge/Data-DOSM%20Core%20CPI%20(Aug%202025)-orange)
 
+## 🚀 Overview
+**MyCPI** is an intelligent **RAG-powered chatbot** that helps users explore Malaysia’s **Core Consumer Price Index (CPI)** data from the **Department of Statistics Malaysia (DOSM)**.  
+Built on **Dify AI**, it enables users to ask questions naturally — such as:
 
-## 2. Tool Choice & Model Provider
+- “What’s the CPI for Transport in August 2025?”
+- “Show the CPI trend for Health from April to June 2024.”
+- “Compare CPI between Education and Food divisions.”
 
+The chatbot retrieves data directly from the official CPI dataset, analyzes trends, and responds with grounded, citation-based answers.  
+It supports **responsible AI principles**, including handling missing or outdated data and refusing unrelated questions.
 
-## 3. Data Card
+## ✨ Key Features
+- **RAG-Powered Answers** – Combines retrieval and generation for accurate, data-grounded responses.
+- **Citations and Transparency** – Every answer includes the official source reference.
+- **Range and Trend Queries** – Handles date ranges (e.g., Jan–Jun 2024) and trend analysis.
+- **Refusal and Clarification Handling** – Responds responsibly to off-topic or incomplete queries.
+- **Dynamic Workflow Design** – Built visually with Dify’s workflow editor (input → retrieval → LLM → response).
+
+## 🧩 Use Cases
+- **Researchers & Economists:** Quickly query official CPI trends or divisions.
+- **Students:** Understand CPI patterns and how inflation is tracked.
+- **Policy Analysts:** Access reliable inflation indicators by category or period.
+- **General Public:** Explore how CPI changes affect everyday goods and services.
+
+## ⚙️ How It Works
+1. User asks a question about Malaysia’s Core CPI (e.g., “CPI for Transport in June 2024”).
+2. The query is classified (single month, range, or calculation).
+3. The workflow retrieves relevant data chunks from the CPI dataset.
+4. The LLM (GPT-4o) synthesizes the answer using retrieved data only.
+5. The chatbot returns a factual, cited response such as:  
+   _“The Core CPI for Transport in June 2024 was 124.3. (Source: DOSM, Core CPI by Division, Aug 2025)”_
+
+## 📸 Screenshot
+![App Screenshot](Screenshot.png)
+
+##  Data Card
 | Field | Details |
 |-------|----------|
 | **Dataset Name** | Monthly Core CPI by Division (2-Digit) |
@@ -18,11 +51,56 @@
 | **Last Updated** | 22 Sept 2025 |
 | **Next Update** | 22 Oct 2025 |
 
-## 4. RAG Design
+## 2. Data Preprocessing
+Before importing into Dify, the original DOSM CPI dataset `original_cpi_2d_core.csv` was preprocessed using `cpi_data_preprocess.py`
+
+Steps performed:
+1. Added a new column `month_name` to map the month in the date to month names (e.g., "01" → "January")
+2. Added a new column `year` to map the year in the date to an individual year
+3. Added a new column `division_name` to map division codes (e.g., "01" → "Food & Beverages") and dropped the original column of the division code
+4. Created a summary column with full sentences:
+   "On January 2024, the Core CPI for {division_name} was {index}."
+5. Saved the processed file as `updated_cpi_2d_core.csv`
+
+Example of the final columns:
+| date       | month_name | year   | division_name | index | summary |
+|-------------|-----------|--------|---------------|------ |----------------------------------------------|
+| 2024-01-01  | January    |2024   | Education     | 124.3  | On January 2024, the Core CPI for Transport was 124.3. |
+
+## 3. RAG design: Setup knowledge base
+1. Navigate to **Knowledge → Create Knowledge**
+2. Upload `updated_cpi_2d_core.csv`
+3. **Chunk Settings:**  `General`
+   - Delimiter: `/n`
+   - Chunk length: `200 characters`
+   - Chunk overlap: `0`
+   - Tick `Replace consecutive spaces, newlines and tabs`
+4. **Index Method**: High Quality
+5. **Embedding Model**: `text-embedding-ada-002`
+6. **Retrieval Setting**: `Hybrid Search`
+   - Choose `Weighted Score`
+   - Top-K: `10`
+   - Semantic similarity: `0.4`
+   - Keyword matching: `0.6`
+
+## 4. Setup workflow in Dify
+1. Go to https://dify.ai
+2. Create a new "Chatflow App"
+3. Import `mycpi_chatflow.yml` from this repository
+4. Install the OpenAI plugin that appear in the pop up
+5. For each Knowledge Retrieval node, choose the CPI Knowledge Base
 
 ## 5. Evaluation
+| Category | Result |
+|:--|:--|
+| **Latency (p50 / p95)** | 9.0s / 16.5s |
+| **Retrieval Hit-Rate** | 60% |
+| **Hallucination Rate** | 0% |
+| **Overall Accuracy (Manual Match)** | 9 / 15 = **60%** |
+| **Common Error Sources** | Range interpretation, limited Top-K retrieval (10), question classifier overlap |
 
 ## 6. Limitations and Future Work
+
 
 ## Version
 **Version:** 1.0  
