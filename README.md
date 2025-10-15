@@ -39,7 +39,7 @@ It supports **responsible AI principles**, including handling missing or outdate
 ## 📸 Screenshot
 ![App Screenshot](Screenshot.png)
 
-##  Data Card
+## Data Card
 | Field | Details |
 |-------|----------|
 | **Dataset Name** | Monthly Core CPI by Division (2-Digit) |
@@ -52,7 +52,7 @@ It supports **responsible AI principles**, including handling missing or outdate
 | **Next Update** | 22 Oct 2025 |
 
 ## 2. Data Preprocessing
-Before importing into Dify, the original DOSM CPI dataset `original_cpi_2d_core.csv` was preprocessed using `cpi_data_preprocess.py`
+Before importing into Dify, the ![original DOSM CPI dataset](./data/original_cpi_2d_core.csv) was preprocessed with this ![code](./data/cpi_data_preprocess.py)
 
 Steps performed:
 1. Added a new column `month_name` to map the month in the date to month names (e.g., "01" → "January")
@@ -60,7 +60,7 @@ Steps performed:
 3. Added a new column `division_name` to map division codes (e.g., "01" → "Food & Beverages") and dropped the original column of the division code
 4. Created a summary column with full sentences:
    "On January 2024, the Core CPI for {division_name} was {index}."
-5. Saved the processed file as `updated_cpi_2d_core.csv`
+5. Saved the processed ![file](/data/updated_cpi_2d_core.csv)
 
 Example of the final columns:
 | date       | month_name | year   | division_name | index | summary |
@@ -69,7 +69,7 @@ Example of the final columns:
 
 ## 3. RAG design: Setup knowledge base
 1. Navigate to **Knowledge → Create Knowledge**
-2. Upload `updated_cpi_2d_core.csv`
+2. Upload ![dataset](./data/updated_cpi_2d_core.csv)
 3. **Chunk Settings:**  `General`
    - Delimiter: `/n`
    - Chunk length: `200 characters`
@@ -86,8 +86,8 @@ Example of the final columns:
 ## 4. Setup workflow in Dify
 1. Go to https://dify.ai
 2. Create a new "Chatflow App"
-3. Import `mycpi_chatflow.yml` from this repository
-4. Install the OpenAI plugin that appear in the pop up
+3. Import the ![workflow](mycpi_chatflow.yml) from this repository
+4. Install the OpenAI plugin that appears in the pop up
 5. For each Knowledge Retrieval node, choose the CPI Knowledge Base
 
 ## 5. Evaluation
