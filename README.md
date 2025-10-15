@@ -10,7 +10,6 @@ Built on **Dify AI**, it enables users to ask questions naturally — such as:
 
 - “What’s the CPI for Transport in August 2025?”
 - “Show the CPI trend for Health from April to June 2024.”
-- “Compare CPI between Education and Food divisions.”
 
 The chatbot retrieves data directly from the official CPI dataset, analyzes trends, and responds with grounded, citation-based answers.  
 It supports **responsible AI principles**, including handling missing or outdated data and refusing unrelated questions.
