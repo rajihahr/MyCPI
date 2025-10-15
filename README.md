@@ -93,9 +93,9 @@ Example of the final columns:
 | Category | Result |
 |:--|:--|
 | **Latency (p50 / p95)** | 9.0s / 16.5s |
-| **Retrieval Hit-Rate** | 60% |
+| **Retrieval Hit-Rate** | 66.67% |
 | **Hallucination Rate** | 0% |
-| **Overall Accuracy (Manual Match)** | 9 / 15 = **60%** |
+| **Overall Accuracy (Manual Match)** | 10 / 15 = **66.67%** |
 | **Common Error Sources** | Range interpretation, limited Top-K retrieval (10), question classifier overlap |
 
 ## ⚠️ Limitations
