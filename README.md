@@ -81,6 +81,7 @@ Example of the final columns:
    - Top-K: `10`
    - Semantic similarity: `0.4`
    - Keyword matching: `0.6`
+   - Score Threshold: `0.3`
 
 ## 🛠️ Setup workflow in Dify
 1. Go to https://dify.ai
