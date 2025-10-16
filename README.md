@@ -4,7 +4,8 @@
 ![OpenAI API](https://img.shields.io/badge/LLM-gpt--4o--blueviolet)
 ![Dataset](https://img.shields.io/badge/Data-DOSM%20Core%20CPI%20(Aug%202025)-orange)
 
-![](/MyCPI_demo.mp4)
+![Demo](MyCPI_demo.mp4)
+![App Screenshot](MyCPI_demo.mp4)
 
 ## 🔎 Overview
 **MyCPI** is an intelligent **RAG-powered chatbot** that helps users explore Malaysia’s **Core Consumer Price Index (CPI)** data from the **Department of Statistics Malaysia (DOSM)**.  
