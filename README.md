@@ -64,7 +64,7 @@ Steps performed:
 Example of the final columns:
 | date       | month_name | year   | division_name | index | summary |
 |-------------|-----------|--------|---------------|------ |----------------------------------------------|
-| 2024-01-01  | January    |2024   | Education     | 124.3  | On January 2024, the Core CPI for Transport was 124.3. |
+| 2024-01-01  | January    |2024   | Education     | 124.3  | On January 2024, the Core CPI for Education was 124.3. |
 
 ## 📚 RAG design: Setup knowledge base
 1. Navigate to **Knowledge → Create Knowledge**
